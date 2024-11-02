@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday, Lagan!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Audio Element -->
+    <audio id="background-music" loop>
+        <source src="havaa.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Video Background -->
+        <video autoplay muted loop id="hero-video">
+            <source src="11.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Overlay Content -->
+        <div class="hero-content">
+            <h1>Happy Birthday My Love 🥰</h1>
+            <div class="buttons">
+                <!-- Read Message Button with Envelope Emoji -->
+                <button id="read-message-btn" class="btn"><span>📨</span> Read Message</button>
+                <!-- View Memories Button -->
+                <a href="#gallery" class="btn" id="view-memories-btn">View Memories</a>
+                <!-- Play Music Button -->
+                <button id="play-music-btn" class="btn secondary">Play Music</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <div id="gallery" class="gallery">
+        <!-- Image 1 -->
+        <div class="gallery-item">
+            <img src="1.jpg" alt="Photo 1" onclick="openModal(0)">
+        </div>
+        <!-- Image 2 -->
+        <div class="gallery-item">
+            <img src="2.jpg" alt="Photo 2" onclick="openModal(1)">
+        </div>
+        <!-- Image 3 -->
+        <div class="gallery-item">
+            <img src="3.jpg" alt="Photo 3" onclick="openModal(2)">
+        </div>
+        <!-- Image 4 -->
+        <div class="gallery-item">
+            <img src="4.jpg" alt="Photo 4" onclick="openModal(3)">
+        </div>
+        <!-- Image 5 -->
+        <div class="gallery-item">
+            <img src="5.jpg" alt="Photo 5" onclick="openModal(4)">
+        </div>
+        <!-- Image 6 -->
+        <div class="gallery-item">
+            <img src="6.jpg" alt="Photo 6" onclick="openModal(5)">
+        </div>
+        <!-- Image 7 -->
+        <div class="gallery-item">
+            <img src="7.jpg" alt="Photo 7" onclick="openModal(6)">
+        </div>
+        <!-- Image 8 -->
+        <div class="gallery-item">
+            <img src="8.jpg" alt="Photo 8" onclick="openModal(7)">
+        </div>
+        <!-- Image 9 -->
+        <div class="gallery-item">
+            <img src="9.jpg" alt="Photo 9" onclick="openModal(8)">
+        </div>
+        <!-- Image 10 -->
+        <div class="gallery-item">
+            <img src="10.jpg" alt="Photo 10" onclick="openModal(9)">
+        </div>
+    </div>
+
+    <!-- Modal for displaying the full image and quote -->
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div class="modal-caption" id="modal-caption"></div>
+    </div>
+
+    <!-- Modal for displaying the message -->
+    <div id="message-modal" class="message-modal">
+        <div class="message-modal-content">
+            <span class="close" id="close-message-modal">&times;</span>
+            <div class="message-text">
+                <p>Happy Birthday, my love! 🎉 Today, I celebrate not just you but the light and joy you bring into my life every day. Being by your side has shown me what real happiness feels like, and I'm endlessly grateful for every laugh, every moment, and every dream we share. May your years ahead be as incredible as you are, filled with all the love and happiness you bring to everyone around you. Here’s to more memories, more laughs, and more ‘us.’ Love you always and forever ❤️</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to the JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
