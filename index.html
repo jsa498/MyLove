@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Happy Birthday, Lagan!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A special birthday message and memories for Lagan.">
+    <meta name="keywords" content="Happy Birthday, Lagan, Memories, Love">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Link to the CSS file -->
     <link rel="stylesheet" href="styles.css">
     <!-- Google Fonts -->
@@ -29,7 +34,7 @@
             <h1>Happy Birthday My Love 🥰</h1>
             <div class="buttons">
                 <!-- Read Message Button with Envelope Emoji -->
-                <button id="read-message-btn" class="btn"><span>📨</span> Read Message</button>
+                <button id="read-message-btn" class="btn"><span aria-hidden="true">📨</span> <span>Read Message</span></button>
                 <!-- View Memories Button -->
                 <a href="#gallery" class="btn" id="view-memories-btn">View Memories</a>
                 <!-- Play Music Button -->
@@ -39,65 +44,69 @@
     </section>
 
     <!-- Gallery Section -->
-    <div id="gallery" class="gallery">
-        <!-- Image 1 -->
-        <div class="gallery-item">
-            <img src="1.jpg" alt="Photo 1" onclick="openModal(0)">
+    <section id="gallery" class="gallery">
+        <!-- Gallery Heading -->
+        <h2>Our Memories Together</h2>
+        <div class="gallery-grid">
+            <!-- Gallery Items -->
+            <div class="gallery-item">
+                <img src="1.jpg" alt="Memory 1" data-index="0">
+            </div>
+            <div class="gallery-item">
+                <img src="2.jpg" alt="Memory 2" data-index="1">
+            </div>
+            <div class="gallery-item">
+                <img src="3.jpg" alt="Memory 3" data-index="2">
+            </div>
+            <div class="gallery-item">
+                <img src="4.jpg" alt="Memory 4" data-index="3">
+            </div>
+            <div class="gallery-item">
+                <img src="5.jpg" alt="Memory 5" data-index="4">
+            </div>
+            <div class="gallery-item">
+                <img src="6.jpg" alt="Memory 6" data-index="5">
+            </div>
+            <div class="gallery-item">
+                <img src="7.jpg" alt="Memory 7" data-index="6">
+            </div>
+            <div class="gallery-item">
+                <img src="8.jpg" alt="Memory 8" data-index="7">
+            </div>
+            <div class="gallery-item">
+                <img src="9.jpg" alt="Memory 9" data-index="8">
+            </div>
+            <div class="gallery-item">
+                <img src="10.jpg" alt="Memory 10" data-index="9">
+            </div>
+            <!-- Add more gallery items if needed -->
         </div>
-        <!-- Image 2 -->
-        <div class="gallery-item">
-            <img src="2.jpg" alt="Photo 2" onclick="openModal(1)">
-        </div>
-        <!-- Image 3 -->
-        <div class="gallery-item">
-            <img src="3.jpg" alt="Photo 3" onclick="openModal(2)">
-        </div>
-        <!-- Image 4 -->
-        <div class="gallery-item">
-            <img src="4.jpg" alt="Photo 4" onclick="openModal(3)">
-        </div>
-        <!-- Image 5 -->
-        <div class="gallery-item">
-            <img src="5.jpg" alt="Photo 5" onclick="openModal(4)">
-        </div>
-        <!-- Image 6 -->
-        <div class="gallery-item">
-            <img src="6.jpg" alt="Photo 6" onclick="openModal(5)">
-        </div>
-        <!-- Image 7 -->
-        <div class="gallery-item">
-            <img src="7.jpg" alt="Photo 7" onclick="openModal(6)">
-        </div>
-        <!-- Image 8 -->
-        <div class="gallery-item">
-            <img src="8.jpg" alt="Photo 8" onclick="openModal(7)">
-        </div>
-        <!-- Image 9 -->
-        <div class="gallery-item">
-            <img src="9.jpg" alt="Photo 9" onclick="openModal(8)">
-        </div>
-        <!-- Image 10 -->
-        <div class="gallery-item">
-            <img src="10.jpg" alt="Photo 10" onclick="openModal(9)">
-        </div>
-    </div>
+    </section>
 
     <!-- Modal for displaying the full image and quote -->
-    <div id="modal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modal-img">
+    <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-caption">
+        <button class="close" aria-label="Close" onclick="closeModal()">&times;</button>
+        <img class="modal-content" id="modal-img" alt="">
         <div class="modal-caption" id="modal-caption"></div>
+        <!-- Navigation Buttons -->
+        <button class="nav-btn prev" id="prev-btn" aria-label="Previous Image">&larr;</button>
+        <button class="nav-btn next" id="next-btn" aria-label="Next Image">&rarr;</button>
     </div>
 
     <!-- Modal for displaying the message -->
-    <div id="message-modal" class="message-modal">
-        <div class="message-modal-content">
-            <span class="close" id="close-message-modal">&times;</span>
+    <div id="message-modal" class="message-modal" aria-hidden="true" role="dialog" aria-labelledby="message-modal-content">
+        <div class="message-modal-content" id="message-modal-content">
+            <button class="close" id="close-message-modal" aria-label="Close">&times;</button>
             <div class="message-text">
                 <p>Happy Birthday, my love! 🎉 Today, I celebrate not just you but the light and joy you bring into my life every day. Being by your side has shown me what real happiness feels like, and I'm endlessly grateful for every laugh, every moment, and every dream we share. May your years ahead be as incredible as you are, filled with all the love and happiness you bring to everyone around you. Here’s to more memories, more laughs, and more ‘us.’ Love you always and forever ❤️</p>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jaskaran Singh ❤️ Lagan Kaur. All Rights Reserved.</p>
+    </footer>
 
     <!-- Link to the JavaScript file -->
     <script src="script.js"></script>
