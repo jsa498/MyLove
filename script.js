@@ -24,6 +24,10 @@ const quotes = [
 const modal = document.getElementById('modal');
 const modalImg = document.getElementById('modal-img');
 const modalCaption = document.getElementById('modal-caption');
+const galleryItems = document.querySelectorAll('.gallery-item img');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+let currentIndex = 0;
 
 // Array of image paths
 const images = [
@@ -37,19 +41,28 @@ const images = [
     '8.jpg',
     '9.jpg',
     '10.jpg'
-    // Ensure all images are placed in the correct directory
+    // Add more image paths if you have more images
 ];
 
 // Function to open the modal and display the image and a random quote
 function openModal(index) {
+    currentIndex = index;
     modal.style.display = 'block';
-    modalImg.src = images[index];
-    modalCaption.innerHTML = getRandomQuote();
+    modal.setAttribute('aria-hidden', 'false');
+    updateModalContent();
 }
 
 // Function to close the modal
 function closeModal() {
     modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+}
+
+// Function to update modal content
+function updateModalContent() {
+    modalImg.src = images[currentIndex];
+    modalImg.alt = `Memory ${currentIndex + 1}`;
+    modalCaption.innerHTML = getRandomQuote();
 }
 
 // Function to get a random quote
@@ -57,47 +70,43 @@ function getRandomQuote() {
     return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
+// Event listeners for gallery items
+galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => openModal(index));
+});
+
+// Navigation buttons
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateModalContent();
+});
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateModalContent();
+});
+
 // Close the image modal when clicking outside the image
-window.onclick = function(event) {
+window.addEventListener('click', (event) => {
     if (event.target == modal) {
         closeModal();
     }
-}
-
-// Smooth Scroll Function with Easing
-function scrollToElement(element, duration) {
-    const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
-    const startPosition = window.pageYOffset;
-    const distance = targetPosition - startPosition;
-    let startTime = null;
-
-    function animation(currentTime){
-        if (startTime === null) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const run = ease(timeElapsed, startPosition, distance, duration);
-        window.scrollTo(0, run);
-        if (timeElapsed < duration) requestAnimationFrame(animation);
-    }
-
-    // Easing Function (EaseInOutCubic)
-    function ease(t, b, c, d) {
-        t /= d / 2;
-        if (t < 1) return c / 2 * t * t * t + b;
-        t -= 2;
-        return c / 2 * (t * t * t + 2) + b;
-    }
-
-    requestAnimationFrame(animation);
-}
+});
 
 // Get the audio element
 const backgroundMusic = document.getElementById('background-music');
 
 // Event Listener for the "Play Music" Button
 document.getElementById('play-music-btn').addEventListener('click', function() {
-    backgroundMusic.play();
-    // Optionally, hide the play button after playing
-    this.style.display = 'none';
+    if (backgroundMusic.paused) {
+        backgroundMusic.play();
+        this.textContent = 'Pause Music';
+        this.classList.add('playing');
+    } else {
+        backgroundMusic.pause();
+        this.textContent = 'Play Music';
+        this.classList.remove('playing');
+    }
 });
 
 // Event Listener for the "View Memories" Button
@@ -107,21 +116,27 @@ document.getElementById('view-memories-btn').addEventListener('click', function(
     // Add fade-out class to hero section
     document.querySelector('.hero').classList.add('fade-out');
 
-    // Scroll to the gallery section over 1 second (1000 milliseconds)
-    scrollToElement(document.getElementById('gallery'), 1000);
+    // Scroll to the gallery section
+    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
 
     // Start the background music when "View Memories" is clicked
-    backgroundMusic.play();
+    if (backgroundMusic.paused) {
+        backgroundMusic.play();
+        document.getElementById('play-music-btn').textContent = 'Pause Music';
+        document.getElementById('play-music-btn').classList.add('playing');
+    }
 });
 
 // Event Listener for the "Read Message" Button
 document.getElementById('read-message-btn').addEventListener('click', function() {
     document.getElementById('message-modal').style.display = 'block';
+    document.getElementById('message-modal').setAttribute('aria-hidden', 'false');
 });
 
 // Event Listener for the Close Button of Message Modal
 document.getElementById('close-message-modal').addEventListener('click', function() {
     document.getElementById('message-modal').style.display = 'none';
+    document.getElementById('message-modal').setAttribute('aria-hidden', 'true');
 });
 
 // Close the message modal when clicking outside of it
@@ -129,6 +144,7 @@ window.addEventListener('click', function(event) {
     const messageModal = document.getElementById('message-modal');
     if (event.target == messageModal) {
         messageModal.style.display = 'none';
+        messageModal.setAttribute('aria-hidden', 'true');
     }
 });
 
