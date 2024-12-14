@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Anniversary, My Love!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A special celebration of love and memories.">
+    <meta name="keywords" content="Anniversary, Birthday, Love, Memories, Celebration">
+    <!-- Theme Color for Mobile -->
+    <meta name="theme-color" content="#ff6b81">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Audio Element -->
+    <audio id="background-music" loop>
+        <source src="o.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Video Background -->
+        <video autoplay muted loop playsinline id="hero-video">
+            <source src="11.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Overlay Content -->
+        <div class="hero-content">
+            <h1>Happy Anniversary My Love 💑</h1>
+            <div class="buttons">
+                <!-- Read Message Button -->
+                <button id="read-message-btn" class="btn" aria-label="Read Message">
+                    <span aria-hidden="true">💌</span> Read Message
+                </button>
+                <!-- View Memories Button -->
+                <a href="#gallery" class="btn" id="view-memories-btn" aria-label="View Memories">
+                    <span aria-hidden="true">📸</span> View Memories
+                </a>
+                <!-- Play Music Button -->
+                <button id="play-music-btn" class="btn secondary" aria-label="Play Music">
+                    <span aria-hidden="true">🎵</span> Play Music
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Our Beautiful Journey Together</h2>
+        <div class="gallery-grid">
+            <!-- Gallery Items -->
+            <div class="gallery-item" role="button" tabindex="0">
+                <img src="1.jpg" alt="Memory 1" data-index="0" loading="lazy">
+            </div>
+            <div class="gallery-item" role="button" tabindex="0">
+                <img src="2.jpg" alt="Memory 2" data-index="1" loading="lazy">
+            </div>
+            <div class="gallery-item" role="button" tabindex="0">
+                <img src="3.jpg" alt="Memory 3" data-index="2" loading="lazy">
+            </div>
+            <div class="gallery-item" role="button" tabindex="0">
+                <img src="4.jpg" alt="Memory 4" data-index="3" loading="lazy">
+            </div>
+            <div class="gallery-item" role="button" tabindex="0">
+                <img src="5.jpg" alt="Memory 5" data-index="4" loading="lazy">
+            </div>
+            <div class="gallery-item" role="button" tabindex="0">
+                <img src="6.jpg" alt="Memory 6" data-index="5" loading="lazy">
+            </div>
+            <div class="gallery-item" role="button" tabindex="0">
+                <img src="7.jpg" alt="Memory 7" data-index="6" loading="lazy">
+            </div>
+            <div class="gallery-item" role="button" tabindex="0">
+                <img src="8.jpg" alt="Memory 8" data-index="7" loading="lazy">
+            </div>
+            <div class="gallery-item" role="button" tabindex="0">
+                <img src="9.jpg" alt="Memory 9" data-index="8" loading="lazy">
+            </div>
+            <div class="gallery-item" role="button" tabindex="0">
+                <img src="10.jpg" alt="Memory 10" data-index="9" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-caption">
+        <button class="close" aria-label="Close" onclick="closeModal()">&times;</button>
+        <img class="modal-content" id="modal-img" alt="">
+        <div class="modal-caption" id="modal-caption"></div>
+        <!-- Navigation Buttons -->
+        <button class="nav-btn prev" id="prev-btn" aria-label="Previous Image">&larr;</button>
+        <button class="nav-btn next" id="next-btn" aria-label="Next Image">&rarr;</button>
+    </div>
+
+    <!-- Message Modal -->
+    <div id="message-modal" class="message-modal" aria-hidden="true" role="dialog" aria-labelledby="message-title">
+        <div class="message-modal-content">
+            <button class="close" id="close-message-modal" aria-label="Close">&times;</button>
+            <h2 id="message-title" class="visually-hidden">Special Message</h2>
+            <div class="message-text">
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jaskaran Singh ❤️ Lagan Kaur. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Link to the JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
